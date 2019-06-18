@@ -3,7 +3,7 @@
            <div class="container">
               <div class="row">
                  <div class="col-md-3">
-                    <div class="footer-logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
+                    <div class="footer-logo"><a href={{route('shop.index','all')}}><img src="images/logo.png" alt=""></a></div>
                  </div>
                  <div class="col-md-3 col-sm-6">
                     <h4 class="title">Contact <strong>Info</strong></h4>
@@ -14,10 +14,10 @@
                  <div class="col-md-3 col-sm-6">
                     <h4 class="title">Customer<strong> Support</strong></h4>
                     <ul class="support">
-                       <li><a href="#">FAQ</a></li>
-                       <li><a href="#">Payment Option</a></li>
-                       <li><a href="#">Booking Tips</a></li>
-                       <li><a href="#">Infomation</a></li>
+                       <li><a href={{route('shop.index','all')}}>FAQ</a></li>
+                       <li><a href={{route('shop.index','all')}}>Payment Option</a></li>
+                       <li><a href={{route('shop.index','all')}}>Booking Tips</a></li>
+                       <li><a href={{route('shop.index','all')}}>Infomation</a></li>
                     </ul>
                  </div>
                  <div class="col-md-3">
@@ -35,14 +35,14 @@
            <div class="container">
               <div class="row">
                  <div class="col-md-6">
-                    <p>Copyright © 2019. All rights reseved</p>
+                    <p style="position: relative; left: 475px; top: 0px;">Copyright © 2019. All rights reseved</p>
                  </div>
                  <div class="col-md-6">
                     <ul class="social-icon">
-                       <li><a href="#" class="linkedin"></a></li>
-                       <li><a href="#" class="google-plus"></a></li>
-                       <li><a href="#" class="twitter"></a></li>
-                       <li><a href="#" class="facebook"></a></li>
+                       <li><a href={{route('shop.index','all')}} class="linkedin"></a></li>
+                       <li><a href={{route('shop.index','all')}} class="google-plus"></a></li>
+                       <li><a href={{route('shop.index','all')}} class="twitter"></a></li>
+                       <li><a href={{route('shop.index','all')}} class="facebook"></a></li>
                     </ul>
                  </div>
               </div>

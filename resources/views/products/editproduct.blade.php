@@ -41,8 +41,9 @@ Thêm sản phẩm
 									</div>
 									<div class="form-group" >
 											<label>Danh mục</label>
-											<select required name="category_id" class="form-control">
-													@foreach ($categories as $category)											
+											<select required name="category_id" class="form-control">	
+													<option value="{{$product->category->id}}">{{$product->category->name}}</option>
+													@foreach ($categories as $category)								
 													<option value="{{$category->id}}">{{$category->name}}</option>
 													@endforeach
 											</select>

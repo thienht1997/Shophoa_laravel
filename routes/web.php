@@ -11,20 +11,22 @@
 |
 */
 Route::get('/','HomeController@index')->name('index');
+Route::get('/dashboard','HomeController@dashboard')->name('dashboard');
+
 
 Route::group(['prefix' => 'products'], function () {
 
-    Route::get('/','ProductController@index')->name('products.list');
+    Route::get('/','ProductController@index')->name('products.list')->middleware('auth');
 
-    Route::get('/create','ProductController@create')->name('products.create');
+    Route::get('/create','ProductController@create')->name('products.create')->middleware('auth');
 
     Route::post('/create','ProductController@store')->name('products.store');
 
-    Route::get('/{id}/edit','ProductController@edit')->name('products.edit');
+    Route::get('/{id}/edit','ProductController@edit')->name('products.edit')->middleware('auth');
 
-    Route::post('/{id}/edit','ProductController@update')->name('products.update');
+    Route::post('/{id}/edit','ProductController@update')->name('products.update')->middleware('auth');
 
-    Route::get('/{id}/destroy','ProductController@destroy')->name('products.destroy');
+    Route::get('/{id}/destroy','ProductController@destroy')->name('products.destroy')->middleware('auth');
 
     Route::get('/filter','ProductController@filterByCategory')->name('products.filterByCategory');
 
@@ -35,13 +37,13 @@ Route::group(['prefix' => 'products'], function () {
 
 Route::group(['prefix' => 'categories'], function () {
 
-    Route::get('/','CategoryController@index')->name('categories.index');
+    Route::get('/','CategoryController@index')->name('categories.index')->middleware('auth');
 
-    Route::get('/create','CategoryController@create')->name('categories.create');
+    Route::get('/create','CategoryController@create')->name('categories.create')->middleware('auth');
 
     Route::post('/create','CategoryController@store')->name('categories.store');
 
-    Route::get('/{id}/edit','CategoryController@edit')->name('categories.edit');
+    Route::get('/{id}/edit','CategoryController@edit')->name('categories.edit')->middleware('auth');
 
     Route::post('/{id}/edit','CategoryController@update')->name('categories.update');
 
@@ -49,38 +51,54 @@ Route::group(['prefix' => 'categories'], function () {
 
     Route::get('/filter','CategoryController@filterByCity')->name('categories.filterByCity');
 
-    Route::get('/search','CategoryController@search')->name('categories.search');
+    Route::get('/search','CategoryController@search')->name('categories.search')->middleware('auth');
 
 
 });
 
 
 Route::group(['prefix' => 'users'], function () {
+    Route::get('/logout','UserController@logout')->name('users.logout');
 
-    Route::get('/','ProductController@index')->name('users.index');
+    Route::get('/login','UserController@login')->name('users.login');
 
-    Route::get('/create','ProductController@create')->name('users.create');
+    Route::get('/register','UserController@register')->name('users.register');
 
-    Route::post('/create','ProductController@store')->name('users.store');
+    Route::post('/create','UserController@store')->name('users.store');
 
-    Route::get('/{id}/edit','ProductController@edit')->name('users.edit');
+    Route::get('/{id}/edit','UserController@edit')->name('users.edit');
 
-    Route::post('/{id}/edit','ProductController@update')->name('users.update');
+    Route::post('/{id}/edit','UserController@update')->name('users.update');
 
-    Route::get('/{id}/destroy','ProductController@destroy')->name('users.destroy');
+    Route::get('/{id}/destroy','UserController@destroy')->name('users.destroy');
 
-    Route::get('/filter','ProductController@filterByCity')->name('users.filterByCity');
+    Route::get('/filter','UserController@filterByCity')->name('users.filterByCity');
 
-    Route::get('/search','ProductController@search')->name('users.search');
+    Route::get('/search','UserController@search')->name('users.search');
 
 
 });
 
 
 Route::group(['prefix' => 'shop'], function () {
-    Route::get('/','ShopController@index')->name('shop.index');
+    Route::get('/{id}','ShopController@index')->name('shop.index');
     Route::get('/{id}/details','ShopController@details')->name('shop.details');
-    Route::get('/{id}/cart','ShopController@cart')->name('shop.cart');
     Route::get('/header','ShopController@showcategory')->name('shop.showcategory');
+    Route::get('/search','ShopController@search')->name('shop.search');
+
+
 });
 
+
+Route::group(['prefix' => 'cart'], function () {
+    Route::get('{id}/add','CartController@add')->name('cart.add')->middleware('auth');
+    Route::get('/show','CartController@show')->name('cart.show')->middleware('auth');
+    Route::get('{id}/detele','CartController@detele')->name('cart.detele')->middleware('auth');
+    Route::post('payment','CartController@payment')->name('cart.payment');
+});
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

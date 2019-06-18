@@ -30,15 +30,7 @@ Hiển thị sản phẩm
             <h5 class="name">
               {{$product->name}}
             </h5>
-            <p>
-              <img alt="" src="images/star.png">
-            </p>
-            <p>
-              Availability:
-              <span class=" light-red">
-                In Stock
-              </span>
-            </p>
+  
             <p>
               Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante
               ipsum primis in faucibus orci luctus et ultrie ces posuere cubilia curae. Proin lectus ipsum, gravida etds
@@ -65,8 +57,8 @@ Hiển thị sản phẩm
                 </select>
               </div>
               <div class="button_group">
-                <a href="{{route('shop.cart', $product->id)}}"><button class="button">
-                  Add To Cart
+                <a href="{{route('cart.add', $product->id)}}"><button class="button">
+                  <span class="glyphicon glyphicon-shopping-cart"></span>
                 </button></a>
                 <button class="button compare">
                   <i class="fa fa-exchange">
@@ -109,7 +101,7 @@ Hiển thị sản phẩm
                   src="{{ asset('layouts/img/'.$product->image) }}" alt="Product Name"></a></div>
             <div class="productname">{{$product->name}}</div>
             <h4 class="price">{{$product->price}}</h4>
-            <div class="button_group"><a href="{{route('shop.cart', $product->id)}}"><button class="button add-cart" type="button">Add
+            <div class="button_group"><a href="{{route('cart.add', $product->id)}}"><button class="button add-cart" type="button">Add
                   To Cart</button></a><button class="button compare" type="button"><i
                     class="fa fa-exchange"></i></button><button class="button wishlist" type="button"><i
                     class="fa fa-heart-o"></i></button></div>

@@ -16,6 +16,19 @@ Trang hiển thị sản phẩm
 				<h1 class="page-header">Sản phẩm</h1>
 			</div>
 		</div><!--/.row-->
+		@if (Auth::check())
+		<div class="alert alert-success">
+		Bạn đang đăng nhập với quyền 
+		@if( Auth::user()->level == 1)
+			{{ "SuperAdmin" }}
+		@elseif( Auth::user()->level == 2)
+			{{ "Admin" }}
+		@elseif( Auth::user()->level == 3)
+			{{ "Thành viên" }}
+		@endif
+		</div>
+		@endif
+	
 		@if(Session::has('success'))
 			<div class="alert alert-success">
 				<ul>
@@ -78,7 +91,7 @@ Trang hiển thị sản phẩm
 								<table class="table table-bordered" style="margin-top:20px;">				
 									<thead>
 										<tr class="bg-primary">
-											<th>ID</th>
+											<th>#</th>
 											<th width="30%">Tên Sản phẩm</th>
 											<th>Giá sản phẩm</th>
 											<th width="20%">Ảnh sản phẩm</th>
@@ -96,7 +109,7 @@ Trang hiển thị sản phẩm
 										<tr>
 											<th scope="row">{{ ++$key }}</th>
 											<td>{{$product->name}}</td>
-											<td>{{$product->price}}</td>
+											<td>{{number_format($product->price,0 ,',','.')}}đ</td>
 											<td>
 												@if(($product->image) == null)
 												<p> Trống </p>
