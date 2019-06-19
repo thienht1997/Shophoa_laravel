@@ -114,6 +114,13 @@
                <br>
                <br>
                 <h3>Confirm Payment</h3><br><br><br>
+                @if(Session::has('success'))
+			      <div class="alert alert-success">
+				      <ul>
+						  <h5>{{Session::get('success')}}<h5>
+				      </ul>
+			      </div>
+		        @endif
               <form method="POST" action="{{route('cart.payment')}}">
                 @csrf
                 <h5>Email address</h5>

@@ -1,6 +1,11 @@
 
 
-
+<style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+</style>
 
 <div id="wrap-inner">
        
@@ -15,7 +20,7 @@
                 {{$info['email']}}
             </p>
             <p>
-                <span class="info">Điện thoại: </span>
+                <span class="info">Số điện thoại: </span>
                 {{$info['number']}}
             </p>
             <p>
@@ -24,15 +29,27 @@
             </p>
            
         </div>	      				
+        <h2>Hoá đơn mua hàng</h2>
+    
         
-        <div id="xac-nhan">
-            <br>
-            <p align="justify">
-                <b>Quý khách đã đặt hàng thành công!</b><br />
-                • Sản phẩm của Quý khách sẽ được chuyển đến Địa chỉ có trong phần Thông tin Khách hàng của chúng Tôi sau thời gian 2 đến 3 ngày, tính từ thời điểm này.<br />
-                • Nhân viên giao hàng sẽ liên hệ với Quý khách qua Số Điện thoại trước khi giao hàng 24 tiếng.<br />
-                <b><br />Cám ơn Quý khách đã sử dụng Sản phẩm của Công ty chúng Tôi!</b>
-            </p>
-        </div>
+        <table style="width:100%">
+          <tr>
+            <th>Sản phẩm</th>
+            <th>Giá(VNĐ)</th>
+            <th>Số lượng</th> 
+            <th>Thành tiền</th>
+          </tr>
+          @foreach ($product_data as $product)
+              
+        
+          <tr>
+            <td>{{$product->name}}</td>
+            <td>  {{number_format($product->price,0 ,',','.')}}đ</td>
+            <td>{{$product->qty}}</td>
+          <td>  {{number_format($product->price*$product->qty,0 ,',','.')}}đ</td>
+          </tr>
+          @endforeach
+        </table>
+        <h3>Tổng cộng: {{$total_price}}</h3>
     </div>				
     
