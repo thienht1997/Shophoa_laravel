@@ -26,6 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        return view('welcome');
         if(Auth::check()){
             if(Auth::user()->level == 1){
             return redirect()->route('products.list');
