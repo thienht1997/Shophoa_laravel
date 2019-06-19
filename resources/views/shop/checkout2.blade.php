@@ -1,6 +1,6 @@
 @extends('layouts.shop_master')
 @section('title')
-    Hiển thị sản phẩm
+    Checkout
 @endsection
 @section('content')
 

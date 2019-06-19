@@ -1,53 +1,30 @@
-@extends('layouts.shop_master')
 
-@section('title')
-    Hiển thị sản phẩm
-@endsection
-@section('content')
+
+
 
 <div id="wrap-inner">
+       
         <div id="khach-hang">
             <h3>Thông tin khách hàng</h3>
             <p>
                 <span class="info">Khách hàng: </span>
-                {{$paymentData->name}}
+                {{$info['name']}}
             </p>
             <p>
                 <span class="info">Email: </span>
-                {{$paymentData->email}}
+                {{$info['email']}}
             </p>
             <p>
                 <span class="info">Điện thoại: </span>
-                {{$paymentData->number}}
+                {{$info['number']}}
             </p>
             <p>
                 <span class="info">Địa chỉ: </span>
-                {{$paymentData->address}}
+                {{$info['address']}}
             </p>
-        </div>						
-        <div id="hoa-don">
-            <h3>Hóa đơn mua hàng</h3>							
-            <table class="table-bordered table-responsive">
-                <tr class="bold">
-                    <td width="30%">Tên sản phẩm</td>
-                    <td width="25%">Giá</td>
-                    <td width="20%">Số lượng</td>
-                    <td width="15%">Thành tiền</td>
-                </tr>
-                @foreach ($collection as $item)
-                <tr>
-                    <td>{{$product_data->name}}</td>
-                    <td class="price">{{$product_data->price}}</td>
-                    <td>{{$product_data->qty}}</td>
-                    <td class="price">{{$product_data->price*$product_data->qty}}</td>
-                </tr>
-                @endforeach
-                <tr>
-                        <td colspan="3">Tổng tiền:</td>
-                        <td class="total-price">{{$total_price}}</td>
-                </tr>
-            </table>
-        </div>
+           
+        </div>	      				
+        
         <div id="xac-nhan">
             <br>
             <p align="justify">
@@ -58,4 +35,4 @@
             </p>
         </div>
     </div>				
-    @endsection
+    

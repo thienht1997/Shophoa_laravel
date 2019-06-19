@@ -100,5 +100,7 @@ Route::group(['prefix' => 'cart'], function () {
 
 
 Auth::routes();
+Route::get('gotoFacebook','AuthController@redirectToFacebook')->name('gotoFaceBook');
+Route::get('gotoGoogle','AuthController@redirectToGoogle')->name('gotoGoogle');
 
 Route::get('/home', 'HomeController@index')->name('home');

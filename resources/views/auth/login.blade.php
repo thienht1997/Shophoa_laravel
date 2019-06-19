@@ -51,11 +51,11 @@
             </div>
 
             <div class="flex-c p-b-112">
-                <a href="#" class="login100-social-item">
+                <a href="-" class="login100-social-item">
                     <i class="fa fa-facebook-f"></i>
                 </a>
 
-                <a href="#" class="login100-social-item">
+                <a href="-" class="login100-social-item">
                     <img src="images/icons/icon-google.png" alt="GOOGLE">
                 </a>
             </div>

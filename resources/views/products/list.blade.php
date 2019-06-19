@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Trang hiển thị sản phẩm		
+Admin	
 @endsection
 
 @section('content')

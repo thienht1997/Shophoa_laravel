@@ -1,7 +1,7 @@
 @extends('layouts.shop_master')
 
 @section('title')
-Hiển thị sản phẩm
+Home
 @endsection
 @section('content')
 

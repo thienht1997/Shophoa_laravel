@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Thêm sản phẩm
+Edit category
 @endsection
 
 @section('content')

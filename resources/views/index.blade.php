@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Mangement
+Admin
 @endsection
 
 @section('content')

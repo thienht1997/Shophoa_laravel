@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Support\Facades\Mail;
+use Mail;
 
 class CartController extends Controller
 {
@@ -43,16 +43,16 @@ class CartController extends Controller
     public function payment(Request $request)
     {
       $product_data =  Cart::content();
-      $paymentData = $request->all();
+        $paymentData['info'] = $request->all();
+
       $total_price = Cart::total();
       $email = $request->email;
-      Mail::send('cart/payment', [$product_data,$total_price],'',function ($message) use ($email) {
+      Mail::send('shop.payment', $paymentData,function ($message) use ($email) {
           $message->from('thienht1997ttt@gmail.com', 'Flat Shop');
-          $message->to($email, 'Name');
-          $message->cc('thienht1997tt@gmail.com', 'John Doe');
+          $message->to($email, $email);
           $message->subject('Xác nhận hóa đơn mua hàng');
       });
-      return redirect('cart/payment');
+      return redirect()->back();
     }
 }
 
